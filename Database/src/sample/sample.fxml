@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyPressed" prefHeight="650.0" prefWidth="1098.0" styleClass="root" stylesheets="@form_design.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox opacity="0.8" prefHeight="650.0" prefWidth="251.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="225.0" prefWidth="251.0">
+               <children>
+                  <Label layoutX="27.0" layoutY="98.0" prefHeight="63.0" prefWidth="197.0" text="Тюнинг-Ателье" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="22.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" layoutX="108.0" layoutY="92.0" size="3em" />
+               </children>
+            </Pane>
+            <Button id="current_orders" fx:id="Button_new_order" mnemonicParsing="false" onAction="#new_order" prefHeight="52.0" prefWidth="267.0" stylesheets="@form_design.css" text="Новый заказ" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="1.5em" />
+               </graphic>
+            </Button>
+            <Button id="current_orders" fx:id="Button_current_orders" mnemonicParsing="false" onAction="#current_orders" prefHeight="52.0" prefWidth="267.0" stylesheets="@form_design.css" text="Текущие заказы" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="CLOCK_ALT" size="1.5em" />
+               </graphic>
+            </Button>
+            <Button fx:id="Button_end_orders" mnemonicParsing="false" onAction="#end_orders" prefHeight="63.0" prefWidth="257.0" stylesheets="@form_design.css" text="Завершённые заказы" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="CHEVRON_CIRCLE_DOWN" size="1.5em" />
+               </graphic>
+            </Button>
+            <Text fx:id="Text_save" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="244.13671875" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="220.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Black" size="11.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <StackPane layoutX="259.0" layoutY="165.0" prefHeight="494.0" prefWidth="853.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="156.0">
+         <children>
+            <GridPane fx:id="end_orders" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="456.0" prefWidth="848.0" style="-fx-background-color: #000000;" visible="false">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="33.0" />
+                  <RowConstraints maxHeight="474.0" minHeight="444.0" prefHeight="461.0" />
+               </rowConstraints>
+               <children>
+                  <TableView fx:id="table_del" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="494.0" prefWidth="834.0" snapToPixel="false" GridPane.rowIndex="1">
+                     <columns>
+                        <TableColumn id="idColumn" fx:id="idColumn_del" prefWidth="56.0" text="ID" />
+                        <TableColumn id="fioColumn" fx:id="dateColumn_del" minWidth="50.0" prefWidth="140.0" text="Дата принятия заказа" />
+                        <TableColumn id="fioColumn" fx:id="fioColumn_del" prefWidth="129.0" text="ФИО Заказчика" />
+                        <TableColumn id="carColumn" fx:id="carColumn_del" prefWidth="113.0" text="Автомобиль" />
+                        <TableColumn id="engine_modColumn" fx:id="engine_modColumn_del" minWidth="50.0" prefWidth="147.0" text="Доработки двигателя" />
+                        <TableColumn id="susp_modColumn" fx:id="susp_modColumn_del" minWidth="50.0" prefWidth="141.0" text="Доработки ходовой" />
+                        <TableColumn id="body_modColumn" fx:id="body_modColumn_del" minWidth="50.0" prefWidth="115.0" text="Доработки кузова" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="825.0" spacing="10.0">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" lineSpacing="10.0" opacity="0.8" selectionEnd="0" size="1.6em" wrappingWidth="18.714284896850586">
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </FontAwesomeIcon>
+                        <TextField fx:id="search_field1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#search_order" prefHeight="25.0" prefWidth="407.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane fx:id="current_orders" opacity="0.8" pickOnBounds="false" prefHeight="494.0" prefWidth="853.0" snapToPixel="false" style="-fx-background-color: #000000;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+                  <RowConstraints maxHeight="237.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="519.0" minHeight="10.0" prefHeight="463.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView fx:id="table" editable="true" pickOnBounds="false" prefHeight="428.0" prefWidth="951.0" snapToPixel="false" GridPane.rowIndex="2">
+                    <columns>
+                      <TableColumn id="idColumn" fx:id="idColumn_cur" prefWidth="56.0" text="ID" />
+                        <TableColumn id="fioColumn" fx:id="dateColumn_cur" minWidth="50.0" prefWidth="140.0" text="Дата принятия заказа" />
+                      <TableColumn id="fioColumn" fx:id="fioColumn_cur" prefWidth="129.0" text="ФИО Заказчика" />
+                        <TableColumn id="carColumn" fx:id="carColumn_cur" prefWidth="113.0" text="Автомобиль" />
+                        <TableColumn id="engine_modColumn" fx:id="engine_modColumn_cur" minWidth="50.0" prefWidth="147.0" text="Доработки двигателя" />
+                        <TableColumn id="susp_modColumn" fx:id="susp_modColumn_cur" minWidth="50.0" prefWidth="141.0" text="Доработки ходовой" />
+                        <TableColumn id="body_modColumn" fx:id="body_modColumn_cur" minWidth="50.0" prefWidth="115.0" text="Доработки кузова" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="910.0" spacing="10.0" GridPane.rowIndex="1">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" lineSpacing="10.0" opacity="0.8" selectionEnd="0" size="1.6em" wrappingWidth="18.714284896850586">
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin></FontAwesomeIcon>
+                        <TextField fx:id="search_field" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#search_order" prefHeight="25.0" prefWidth="407.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></TextField>
+                        <ComboBox fx:id="Combobox_order" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="213.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></ComboBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane fx:id="new_order" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="494.0" prefWidth="853.0" style="-fx-background-color: #000000;" visible="false">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="519.0" minHeight="10.0" prefHeight="463.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="Text_field_body_mod" alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <GridPane.margin>
+                        <Insets left="570.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="Text_field_engine_mod" alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <GridPane.margin>
+                        <Insets bottom="300.0" left="570.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="Text_field_car" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets left="110.0" top="100.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="Text_field_susp_mod" alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="259.0">
+                     <GridPane.margin>
+                        <Insets bottom="150.0" left="570.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="Text_field_name" alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <GridPane.margin>
+                        <Insets bottom="100.0" left="110.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="Text_field_date" alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <GridPane.margin>
+                        <Insets bottom="300.0" left="110.0" />
+                     </GridPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+                  <Button fx:id="add_order" alignment="CENTER" mnemonicParsing="false" onAction="#add_order" opacity="0.8" prefHeight="34.0" prefWidth="229.0" text="Добавить заказ" textFill="WHITE">
+                     <GridPane.margin>
+                        <Insets left="300.0" top="250.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS_SQUARE" size="1.5em" wrappingWidth="25.285715103149414" />
+                     </graphic></Button>
+                  <TextField fx:id="Text_field_surname" alignment="CENTER" cacheShape="false" centerShape="false" layoutX="510.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <GridPane.margin>
+                        <Insets bottom="200.0" left="110.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="Text_field_patronymic" alignment="CENTER" cacheShape="false" centerShape="false" layoutX="510.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="260.0">
+                     <GridPane.margin>
+                        <Insets left="110.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label prefHeight="45.0" prefWidth="94.0" text="Дата заказа" textFill="WHITE">
+                     <GridPane.margin>
+                        <Insets bottom="300.0" left="20.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="76.0" text="Фамилия" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="200.0" left="35.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="48.0" text="Имя" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="100.0" left="70.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="66.0" text="Отчество" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label prefHeight="45.0" prefWidth="89.0" text="Автомобиль" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" top="100.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="85.0" prefHeight="45.0" prefWidth="155.0" text="Доработки двигателя" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="300.0" left="410.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="420.0" layoutY="85.0" prefHeight="45.0" prefWidth="155.0" text="Доработки ходовой" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="150.0" left="410.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="420.0" layoutY="135.0" prefHeight="45.0" prefWidth="155.0" text="Доработки кузова" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="410.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </StackPane>
+      <StackPane layoutX="248.0" layoutY="40.0" prefHeight="108.0" prefWidth="423.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Pane fx:id="pane_new_order" opacity="0.8" prefHeight="114.0" prefWidth="850.0" style="-fx-background-color: #000000;" visible="false">
+               <children>
+                  <Label layoutX="37.0" layoutY="14.0" prefHeight="52.0" prefWidth="322.0" text="Создание нового заказа" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="66.0" prefHeight="34.0" prefWidth="322.0" text="Заполнение всех данных заказа" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_end_orders" layoutX="10.0" layoutY="10.0" opacity="0.8" prefHeight="114.0" prefWidth="850.0" style="-fx-background-color: #000000;" visible="false">
+               <children>
+                  <Label layoutX="37.0" layoutY="14.0" prefHeight="52.0" prefWidth="322.0" text="Завершённые заказы" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="66.0" prefHeight="34.0" prefWidth="409.0" text="Заказы которые были успешно выполнены " textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_current_order" layoutX="10.0" layoutY="10.0" opacity="0.8" prefHeight="108.0" prefWidth="428.0" style="-fx-background-color: #000000;">
+               <children>
+                  <Label layoutX="37.0" layoutY="14.0" prefHeight="52.0" prefWidth="322.0" text="Текущие заказы" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="66.0" prefHeight="34.0" prefWidth="322.0" text="Сведения о выполняемых заказах" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <ToolBar fx:id="ToolBar1" layoutX="257.0" minHeight="-Infinity" opacity="0.8" prefHeight="34.0" prefWidth="586.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <Button fx:id="but_open" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#hndlOpenFile" prefHeight="29.0" prefWidth="29.0" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" fontSmoothingType="LCD" glyphName="FOLDER_OPEN" size="1.7em" wrappingWidth="16.85714340209961" />
+               </graphic>
+            </Button>
+            <Button fx:id="but_save_how" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#hndlSaveFile" prefHeight="29.0" prefWidth="29.0">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" fontSmoothingType="LCD" glyphName="EDIT" size="1.8em" />
+               </graphic>
+            </Button>
+            <Button fx:id="Button_end_order" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="122.0" layoutY="8.0" mnemonicParsing="false" onAction="#end_order" prefHeight="28.0" prefWidth="0.0" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" fontSmoothingType="LCD" glyphName="CHECK_SQUARE_ALT" size="1.8em" />
+               </graphic>
+            </Button>
+            <Button fx:id="Button_delete_order" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#delete_order" prefHeight="29.0" prefWidth="29.0" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" fontSmoothingType="LCD" glyphName="TRASH" size="1.8em" />
+               </graphic>
+            </Button>
+            <Button fx:id="Button_change_order" disable="true" mnemonicParsing="false" onAction="#change_order">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="PENCIL" size="1.8em" />
+               </graphic>
+            </Button>
+            <Button fx:id="Button_info" mnemonicParsing="false" onAction="#info" prefHeight="30.0" prefWidth="26.0">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="INFO_CIRCLE" size="1.8em" />
+               </graphic>
+            </Button>
+        </items>
+      </ToolBar>
+      <Pane fx:id="Pane_change" layoutX="668.0" layoutY="40.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="108.0" prefWidth="340.0" style="-fx-background-color: #000000;" visible="false" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="Button_accept_change" layoutX="120.0" layoutY="69.0" mnemonicParsing="false" onAction="#accept_change" text="Изменить поле" textFill="WHITE" />
+            <Label fx:id="Label_change" alignment="CENTER_RIGHT" layoutX="24.0" layoutY="21.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="133.0" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Text_field_change" layoutX="170.0" layoutY="22.0" pickOnBounds="false" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane layoutX="245.0" prefHeight="650.0" prefWidth="7.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="Pane_stub" layoutX="668.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="108.0" prefWidth="340.0" style="-fx-background-color: #000000;" AnchorPane.rightAnchor="0.0" />
+      <ToolBar fx:id="ToolBar2" layoutX="843.0" layoutY="-7.0" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: #000000;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Label contentDisplay="BOTTOM" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="213.0" />
+            <Button fx:id="Button_reference" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#reference" prefHeight="28.0" prefWidth="28.0" snapToPixel="false" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="QUESTION_CIRCLE" size="1.7em" />
+               </graphic>
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Button>
+         </items>
+      </ToolBar>
+      <Pane layoutX="252.0" layoutY="34.0" prefHeight="7.0" prefWidth="853.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0" />
+   </children>
+</AnchorPane>

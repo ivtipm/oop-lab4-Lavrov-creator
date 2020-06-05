@@ -1,0 +1,47 @@
+.root
+{
+-fx-background-image: url("sample/Dutsun_280Z_ADV.1_438525.jpg");
+
+}
+.button
+{
+-fx-background-color :  #000000;
+}
+.button:hover
+{
+-fx-background-color :  #555555;
+}
+.button:pressed
+{
+-fx-background-color :  #1F98BF;
+-fx-opacity :2;
+}
+.table-view
+{
+    -fx-base: #000000;
+    -fx-control-inner-background: #000000;
+    -fx-background-color: #000000;
+    -fx-table-cell-border-color: #1F98BF;
+    //-fx-table-header-border-color: #1F98BF;
+    -fx-padding: 5;
+}
+.table-view .column-header,
+.table-view .column-header-background .filler
+{
+-fx-cell-size: 20;
+-fx-background-color: #000000;
+}
+.table-view .column-header .label
+{
+-fx-text-fill :white;
+-fx-font-weight :bold;
+-fx-allignment: CENTER_LEFT;
+}
+.grid-pane
+{
+    -fx-background-color: #000000;
+}
+.tooltip
+{
+-fx-font-size: 16px;
+}
